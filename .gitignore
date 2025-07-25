@@ -1,0 +1,7 @@
+outputs_det/
+itw_data/
+mmdetection
+examples*
+test_samples*
+data/*
+**/__pycache__/*

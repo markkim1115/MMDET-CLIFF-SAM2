@@ -1,0 +1,1 @@
+ python 00_run_detection_and_cliff.py --input_type folder --input_path /home/oem/members/dyub/CLIFF/examples --save_results
