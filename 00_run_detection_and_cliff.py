@@ -24,6 +24,7 @@ import argparse
 import numpy as np
 from tqdm import tqdm
 import pickle
+import joblib
 import torch
 import torchgeometry as tgm
 from torch.utils.data import DataLoader
@@ -314,10 +315,8 @@ def main(args):
             mesh_infos[namekey]['tpose_joints'] = pred_tpose_joints[i].cpu().numpy()
             mesh_infos[namekey]['betas'] = smpl_betas[i]
 
-        with open(osp.join(result_filedir_path, f"mesh_infos.pkl"), "wb") as f:
-            pickle.dump(mesh_infos, f)
-        with open(osp.join(result_filedir_path, f"cameras.pkl"), "wb") as f:
-            pickle.dump(cameras, f)
+        joblib.dump(mesh_infos, osp.join(result_filedir_path, f"mesh_infos.joblib"))
+        joblib.dump(cameras, osp.join(result_filedir_path, f"cameras.joblib"))
 
         print(f"Save results to \"{result_filedir_path}\"")
 
